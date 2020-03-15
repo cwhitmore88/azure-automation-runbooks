@@ -6,7 +6,7 @@ $tenantId = Get-AutomationVariable -Name 'TenantId'
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
 
 #Get all Windows VMs in the WebServers resource group
-$vms = Get-AzVM -ResourceGroupName webservers | 
+$vms = Get-AzVM -ResourceGroupName cw-Webservers | 
   Where-Object {$_.StorageProfile.OsDisk.OsType -eq 'Windows'}
 
 #Loop over each VMs data disks and cut a snapshot of them
